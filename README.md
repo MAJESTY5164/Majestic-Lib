@@ -42,7 +42,7 @@ end
 
 ## Booting the Library
 ```lua
-local MajesticLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/CeleryHub-official/CeleryHub/main/Lib')))()
+local MajesticLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/CeleryHub-official/Majestic-Lib/main/Lib%20Source')))()
 ```
 
 
