@@ -1,16 +1,56 @@
-# Orion Library
-This documentation is for the stable release of Orion Library.
+# Majestic Library
+This Library is a clone of Orion Library with some customization
+
+## Customizing the Library
+```lua
+getgenv().Icon = "Orion" -- Orion or paste a custom rbxassetid
+getgenv().Icon = "Orion" -- Orion or paste a custom rbxassetid
+getgenv().Name = "Majestic"
+         Theme = "Majestic" -- Orion, Majestic, or Custom
+
+if Theme == "Custom" then
+    getgenv().MainRed = 0
+    getgenv().MainGreen = 0
+    getgenv().MainBlue = 0
+
+    getgenv().SecondRed = 0
+    getgenv().SecondGreen = 0
+    getgenv().SecondBlue = 0
+
+    getgenv().StrokeRed = 0
+    getgenv().StrokeGreen = 0
+    getgenv().StrokeBlue = 0
+
+    getgenv().DividerRed = 0
+    getgenv().DividerGreen = 0
+    getgenv().DividerBlue = 0
+
+    getgenv().TextRed = 0
+    getgenv().TextGreen = 0
+    getgenv().TextBlue = 0
+
+    getgenv().TextDarkRed = 0
+    getgenv().TextDarkGreen = 0
+    getgenv().TextDarkBlue = 0
+
+    getgenv().Theme = "Custom"
+else
+    getgenv().Theme = Theme
+end
+```
+
+
 
 ## Booting the Library
 ```lua
-local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local MajesticLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/CeleryHub-official/CeleryHub/main/Lib')))()
 ```
 
 
 
 ## Creating a Window
 ```lua
-local Window = OrionLib:MakeWindow({Name = "Title of the library", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+local Window = MajesticLib:MakeWindow({Name = "Title of the library", HidePremium = false, SaveConfig = true, ConfigFolder = "MajesticTest"})
 
 --[[
 Name = <string> - The name of the UI.
@@ -55,7 +95,7 @@ You can add elements to sections the same way you would add them to a tab normal
 
 ## Notifying the user
 ```lua
-OrionLib:MakeNotification({
+MajesticLib:MakeNotification({
 	Name = "Title!",
 	Content = "Notification content... what will it say??",
 	Image = "rbxassetid://4483345998",
@@ -268,7 +308,7 @@ Dropdown:Set("dropdown option")
 # Finishing your script (REQUIRED)
 The below function needs to be added at the end of your code.
 ```lua
-OrionLib:Init()
+MajesticLib:Init()
 ```
 
 ### How flags work.
@@ -282,7 +322,7 @@ Tab1:AddToggle({
     Flag = "toggle"
 })
 
-print(OrionLib.Flags["toggle"].Value) -- prints the value of the toggle.
+print(MajesticLib.Flags["toggle"].Value) -- prints the value of the toggle.
 ```
 Flags only work with the toggle, slider, dropdown, bind, and colorpicker.
 
@@ -295,5 +335,5 @@ Config files are made for every game the library is launched in.
 
 ## Destroying the Interface
 ```lua
-OrionLib:Destroy()
+MajesticLib:Destroy()
 ```
