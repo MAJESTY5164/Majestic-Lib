@@ -4,7 +4,6 @@ This Library is a clone of Orion Library with some customization
 ## Customizing the Library
 ```lua
 getgenv().Icon = "Orion" -- Orion or paste a custom rbxassetid
-getgenv().Icon = "Orion" -- Orion or paste a custom rbxassetid
 getgenv().Name = "Majestic"
          Theme = "Majestic" -- Orion, Majestic, or Custom
 
