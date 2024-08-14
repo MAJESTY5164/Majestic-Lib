@@ -1,0 +1,82 @@
+ThisColor = getgenv().Color
+
+
+
+
+-- Variables for highlight colors
+local highlightFillColor = Color3.fromRGB(255, 0, 0) -- Red fill color (change as needed)
+local highlightOutlineColor = Color3.fromRGB(250, 250, 250) -- Green outline color (change as needed)
+local highlightFillTransparency = 0 -- Semi-transparent fill (change as needed)
+local highlightOutlineTransparency = 0 -- Opaque outline (change as needed)
+
+
+if ThisColor == "Red" then
+	highlightFillColor = Color3.fromRGB(255, 0, 0)
+elseif Color == "Blue" then
+    highlightFillColor = Color3.fromRGB(2, 30, 240)
+elseif ThisColor == "Pink" then
+    highlightFillColor = Color3.fromRGB(255, 0, 128)
+elseif ThisColor == "Purple" then
+    highlightFillColor = Color3.fromRGB(179, 25, 255)
+elseif ThisColor == "White" then
+    highlightFillColor = Color3.fromRGB(255, 255, 255)
+elseif ThisColor == "Teal" then
+    highlightFillColor = Color3.fromRGB(0, 128, 128)
+elseif ThisColor == "Green" then
+    highlightFillColor = Color3.fromRGB(0, 255, 0)
+elseif ThisColor == "Yellow" then
+    highlightFillColor = Color3.fromRGB(255, 246, 0)
+elseif ThisColor == "Orange" then
+    highlightFillColor = Color3.fromRGB(255, 103, 0)
+    
+end
+
+
+
+
+-- Function to find an object by its path
+local function findObjectByPath(path)
+    local parts = path:split("/") -- Split the path into parts
+    local parent = workspace
+
+    for _, part in ipairs(parts) do
+        parent = parent:FindFirstChild(part)
+        if not parent then
+            return nil
+        end
+    end
+    return parent
+end
+
+-- Define the path to your object
+local path = "GameplayAssets/Items/Normal/PaintBucket/" .. ThisColor .. "/Core"
+
+local coreObject = findObjectByPath(path)
+
+while 1 == 1 do
+
+while getgenv().UpdateColor ~= (ThisColor .. "T") do
+	wait(0.1)
+end
+
+local highlight = Instance.new("Highlight")
+highlight.Adornee = coreObject
+highlight.Parent = workspace -- or any other suitable parent
+highlight.FillColor = highlightFillColor
+highlight.OutlineColor = highlightFillColor
+highlight.FillTransparency = highlightFillTransparency
+highlight.OutlineTransparency = highlightOutlineTransparency
+
+while getgenv().UpdateColor ~= (ThisColor .. "F") do
+	wait(0.1)
+end
+
+
+highlight:Destroy()
+
+
+
+
+
+wait(0.1)
+end
