@@ -1,4 +1,4 @@
-ThisColor = getgenv().Color
+local ThisColor = getgenv().Color
 
 
 
