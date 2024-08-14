@@ -1,7 +1,7 @@
 LibTheme = getgenv().Theme
-LibName = getgenv().Name
+LibName = getgenv().LibNameId
 LibIcon = getgenv().Icon
-
+LibNameLoad = getgenv().Name
 
 if LibTheme == "Custom" then
     MR = getgenv().MainRed
@@ -119,7 +119,7 @@ local Success, Response = pcall(function()
 end)
 
 if not Success then
-	warn("\n" .. LibName .. " Library - Failed to load Feather Icons. Error code: " .. Response .. "\n")
+	warn("\n" .. LibNameId .. " Library - Failed to load Feather Icons. Error code: " .. Response .. "\n")
 end	
 
 local function GetIcon(IconName)
@@ -309,7 +309,7 @@ local function LoadCfg(Config)
 				end    
 			end)
 		else
-			warn(LibName .. " Library Config Loader - Could not find ", a ,b)
+			warn(LibNameId .. " Library Config Loader - Could not find ", a ,b)
 		end
 	end)
 end
@@ -555,14 +555,14 @@ function MajesticLib:MakeWindow(WindowConfig)
 	local UIHidden = false
 
 	WindowConfig = WindowConfig or {}
-	WindowConfig.Name = WindowConfig.Name or LibName .. " Library"
+	WindowConfig.Name = WindowConfig.Name or LibNameId .. " Library"
 	WindowConfig.ConfigFolder = WindowConfig.ConfigFolder or WindowConfig.Name
 	WindowConfig.SaveConfig = WindowConfig.SaveConfig or false
 	WindowConfig.HidePremium = WindowConfig.HidePremium or false
 	if WindowConfig.IntroEnabled == nil then
 		WindowConfig.IntroEnabled = true
 	end
-	WindowConfig.IntroText = WindowConfig.IntroText or LibName .. " Library"
+	WindowConfig.IntroText = WindowConfig.IntroText or LibNameId .. " Library"
 	WindowConfig.CloseCallback = WindowConfig.CloseCallback or function() end
 	WindowConfig.ShowIcon = WindowConfig.ShowIcon or false
 	WindowConfig.Icon = WindowConfig.Icon or LibIcon
