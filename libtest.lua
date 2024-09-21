@@ -811,7 +811,7 @@ function MajesticLib:MakeWindow(WindowConfig)
 		TabConfig = TabConfig or {}
 		TabConfig.Name = TabConfig.Name or "Tab"
 		TabConfig.Icon = TabConfig.Icon or ""
-		TabConfig.PremiumOnly = TabConfig.PremiumOnly or false
+		TabConfig.Statue = TabConfig.Status or false
 
 		local TabFrame = SetChildren(SetProps(MakeElement("Button"), {
 			Size = UDim2.new(1, 0, 0, 30),
@@ -1756,7 +1756,7 @@ function MajesticLib:MakeWindow(WindowConfig)
 			ElementFunction[i] = v 
 		end
 
-		if TabConfig.PremiumOnly then
+		if TabConfig.Status ~= false and TabConfig.Status ~= Status then
 			for i, v in next, ElementFunction do
 				ElementFunction[i] = function() end
 			end    
