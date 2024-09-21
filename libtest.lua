@@ -3,6 +3,12 @@ LibName = getgenv().Name
 LibIcon = getgenv().Icon
 Status = getgenv().Status
 
+if Status == false then
+IsStatus = false
+else
+IsStatus = true
+end
+
 
 if LibTheme == "Custom" then
     MR = getgenv().MainRed
@@ -665,10 +671,10 @@ function MajesticLib:MakeWindow(WindowConfig)
 				Font = Enum.Font.GothamBold,
 				ClipsDescendants = true
 			}), "Text"),
-			AddThemeObject(SetProps(MakeElement("Label", "", 12), {
+			AddThemeObject(SetProps(MakeElement("Label", Status, 12), {
 				Size = UDim2.new(1, -60, 0, 12),
 				Position = UDim2.new(0, 50, 1, -25),
-				Visible = not WindowConfig.HidePremium
+				Visible = IsStatus
 			}), "TextDark")
 		}),
 	}), "Second")
