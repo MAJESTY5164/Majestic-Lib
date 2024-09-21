@@ -4,9 +4,9 @@ This Library is a clone of Orion Library with some customization
 ## Customizing the Library
 ```lua
 getgenv().Icon = "Orion" -- Orion or paste a custom rbxassetid
-getgenv().Name = "Majestic"
-getgenv().Id = "v"
-getgenv().Status = "test"
+getgenv().Name = "Majestic" -- Name of the lib ex: Majestic = Majestic Library
+getgenv().Id = "IdHere" -- The Id of the hub
+getgenv().Status = false -- The user Status Displayed Below the users name
          Theme = "Majestic" -- Orion, Majestic, or Custom
 
 if Theme == "Custom" then
