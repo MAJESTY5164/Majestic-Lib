@@ -1,7 +1,8 @@
 LibTheme = getgenv().Theme
 LibName = getgenv().Name
+LibId = getgenv().Id
 LibIcon = getgenv().Icon
-
+Status = getgenv().Status
 
 if LibTheme == "Custom" then
     MR = getgenv().MainRed
@@ -131,7 +132,7 @@ local function GetIcon(IconName)
 end   
 
 local Majestic = Instance.new("ScreenGui")
-Majestic.Name = LibName
+Majestic.Name = LibId
 if syn then
 	syn.protect_gui(Majestic)
 	Majestic.Parent = game.CoreGui
@@ -558,7 +559,7 @@ function MajesticLib:MakeWindow(WindowConfig)
 	WindowConfig.Name = WindowConfig.Name or LibName .. " Library"
 	WindowConfig.ConfigFolder = WindowConfig.ConfigFolder or WindowConfig.Name
 	WindowConfig.SaveConfig = WindowConfig.SaveConfig or false
-	WindowConfig.HidePremium = WindowConfig.HidePremium or false
+	WindowConfig.HideStatus = WindowConfig.HideStatus or false
 	if WindowConfig.IntroEnabled == nil then
 		WindowConfig.IntroEnabled = true
 	end
@@ -658,16 +659,16 @@ function MajesticLib:MakeWindow(WindowConfig)
 				AddThemeObject(MakeElement("Stroke"), "Stroke"),
 				MakeElement("Corner", 1)
 			}),
-			AddThemeObject(SetProps(MakeElement("Label", "test", WindowConfig.HidePremium and 14 or 13), {
+			AddThemeObject(SetProps(MakeElement("Label", LocalPlayer.DisplayName, WindowConfig.HideStatus and 14 or 13), {
 				Size = UDim2.new(1, -60, 0, 13),
-				Position = WindowConfig.HidePremium and UDim2.new(0, 50, 0, 19) or UDim2.new(0, 50, 0, 12),
+				Position = WindowConfig.HideStatus and UDim2.new(0, 50, 0, 19) or UDim2.new(0, 50, 0, 12),
 				Font = Enum.Font.GothamBold,
 				ClipsDescendants = true
 			}), "Text"),
-			AddThemeObject(SetProps(MakeElement("Label", "test", 12), {
+			AddThemeObject(SetProps(MakeElement("Label", Status, 12), {
 				Size = UDim2.new(1, -60, 0, 12),
 				Position = UDim2.new(0, 50, 1, -25),
-				Visible = true
+				Visible = not WindowConfig.HideStatus
 			}), "TextDark")
 		}),
 	}), "Second")
