@@ -1,5 +1,6 @@
 LibTheme = getgenv().Theme
 LibName = getgenv().Name
+LibId = getgenv().Id
 LibIcon = getgenv().Icon
 Status = getgenv().Status
 
@@ -139,7 +140,7 @@ local function GetIcon(IconName)
 end   
 
 local Majestic = Instance.new("ScreenGui")
-Majestic.Name = LibName
+Majestic.Name = LibId
 if syn then
 	syn.protect_gui(Majestic)
 	Majestic.Parent = game.CoreGui
