@@ -674,7 +674,7 @@ function MajesticLib:MakeWindow(WindowConfig)
 			AddThemeObject(SetProps(MakeElement("Label", Status, 12), {
 				Size = UDim2.new(1, -60, 0, 12),
 				Position = UDim2.new(0, 50, 1, -25),
-				Visible = IsStatus
+				Visible = true
 			}), "TextDark")
 		}),
 	}), "Second")
