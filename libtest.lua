@@ -1,8 +1,7 @@
 LibTheme = getgenv().Theme
 LibName = getgenv().Name
-LibId = getgenv().Id
 LibIcon = getgenv().Icon
-Status = getgenv().Status
+
 
 if LibTheme == "Custom" then
     MR = getgenv().MainRed
@@ -132,7 +131,7 @@ local function GetIcon(IconName)
 end   
 
 local Majestic = Instance.new("ScreenGui")
-Majestic.Name = LibId
+Majestic.Name = LibName
 if syn then
 	syn.protect_gui(Majestic)
 	Majestic.Parent = game.CoreGui
@@ -559,7 +558,7 @@ function MajesticLib:MakeWindow(WindowConfig)
 	WindowConfig.Name = WindowConfig.Name or LibName .. " Library"
 	WindowConfig.ConfigFolder = WindowConfig.ConfigFolder or WindowConfig.Name
 	WindowConfig.SaveConfig = WindowConfig.SaveConfig or false
-	WindowConfig.HideStatus = WindowConfig.HideStatus or false
+	WindowConfig.Status = WindowConfig.Status or false
 	if WindowConfig.IntroEnabled == nil then
 		WindowConfig.IntroEnabled = true
 	end
@@ -659,16 +658,16 @@ function MajesticLib:MakeWindow(WindowConfig)
 				AddThemeObject(MakeElement("Stroke"), "Stroke"),
 				MakeElement("Corner", 1)
 			}),
-			AddThemeObject(SetProps(MakeElement("Label", LocalPlayer.DisplayName, WindowConfig.HideStatus and 14 or 13), {
+			AddThemeObject(SetProps(MakeElement("Label", LocalPlayer.DisplayName, WindowConfig.Status and 14 or 13), {
 				Size = UDim2.new(1, -60, 0, 13),
-				Position = WindowConfig.HideStatus and UDim2.new(0, 50, 0, 19) or UDim2.new(0, 50, 0, 12),
+				Position = WindowConfig.Status and UDim2.new(0, 50, 0, 19) or UDim2.new(0, 50, 0, 12),
 				Font = Enum.Font.GothamBold,
 				ClipsDescendants = true
 			}), "Text"),
-			AddThemeObject(SetProps(MakeElement("Label", Status, 12), {
+			AddThemeObject(SetProps(MakeElement("Label", getgenv().Status, 12), {
 				Size = UDim2.new(1, -60, 0, 12),
 				Position = UDim2.new(0, 50, 1, -25),
-				Visible = not WindowConfig.HideStatus
+				Visible = not WindowConfig.Status
 			}), "TextDark")
 		}),
 	}), "Second")
@@ -811,7 +810,7 @@ function MajesticLib:MakeWindow(WindowConfig)
 		TabConfig = TabConfig or {}
 		TabConfig.Name = TabConfig.Name or "Tab"
 		TabConfig.Icon = TabConfig.Icon or ""
-		TabConfig.Statue = TabConfig.Status or false
+		TabConfig.Status = TabConfig.Status or false
 
 		local TabFrame = SetChildren(SetProps(MakeElement("Button"), {
 			Size = UDim2.new(1, 0, 0, 30),
@@ -1756,7 +1755,7 @@ function MajesticLib:MakeWindow(WindowConfig)
 			ElementFunction[i] = v 
 		end
 
-		if TabConfig.Status ~= false and TabConfig.Status ~= Status then
+		if TabConfig.Status then
 			for i, v in next, ElementFunction do
 				ElementFunction[i] = function() end
 			end    
