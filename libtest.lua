@@ -3,7 +3,11 @@ LibName = getgenv().Name
 LibIcon = getgenv().Icon
 Status = getgenv().Status
 
+if Status ~= false then
 statusvis = true
+else
+statusvis = false
+end
 
 
 
