@@ -5,6 +5,8 @@ This Library is a clone of Orion Library with some customization
 ```lua
 getgenv().Icon = "Orion" -- Orion or paste a custom rbxassetid
 getgenv().Name = "Majestic"
+getgenv().Id = "v"
+getgenv().Status = "test"
          Theme = "Majestic" -- Orion, Majestic, or Custom
 
 if Theme == "Custom" then
@@ -42,18 +44,17 @@ end
 
 ## Booting the Library
 ```lua
-local MajesticLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/CeleryHub-official/Majestic-Lib/main/Lib%20Source')))()
+local MajesticLib = loadstring(game:HttpGet(('https://https://raw.githubusercontent.com/MAJESTY5164/Majestic-Lib/refs/heads/main/Lib%20Source')))()
 ```
 
 
 
 ## Creating a Window
 ```lua
-local Window = MajesticLib:MakeWindow({Name = "Title of the library", HidePremium = false, SaveConfig = true, ConfigFolder = "MajesticTest"})
+local Window = MajesticLib:MakeWindow({Name = "Title of the library", SaveConfig = true, ConfigFolder = "MajesticTest"})
 
 --[[
 Name = <string> - The name of the UI.
-HidePremium = <bool> - Whether or not the user details shows Premium status or not.
 SaveConfig = <bool> - Toggles the config saving in the UI.
 ConfigFolder = <string> - The name of the folder where the configs are saved.
 IntroEnabled = <bool> - Whether or not to show the intro animation.
@@ -71,13 +72,11 @@ CloseCallback = <function> - Function to execute when the window is closed.
 local Tab = Window:MakeTab({
 	Name = "Tab 1",
 	Icon = "rbxassetid://4483345998",
-	PremiumOnly = false
 })
 
 --[[
 Name = <string> - The name of the tab.
 Icon = <string> - The icon of the tab.
-PremiumOnly = <bool> - Makes the tab accessible to Sirus Premium users only.
 ]]
 ```
 ## Creating a Section
