@@ -44,7 +44,7 @@ end
 
 ## Booting the Library
 ```lua
-local MajesticLib = loadstring(game:HttpGet(('https://https://raw.githubusercontent.com/MAJESTY5164/Majestic-Lib/refs/heads/main/Lib%20Source')))()
+local MajesticLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/MAJESTY5164/Majestic-Lib/refs/heads/main/Lib%20Source')))()
 ```
 
 
